@@ -88,6 +88,7 @@ public class ObfuscateRunner extends Configured implements Tool {
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setMapperClass(ObfuscateMapper.class);
 		job.setNumReduceTasks(0);
+		job.setJarByClass(getClass());
 		FileSystem.get(outputPath.toUri(), getConf()).delete(outputPath, true);
 		return job;
 	}
